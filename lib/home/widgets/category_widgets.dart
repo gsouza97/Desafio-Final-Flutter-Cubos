@@ -23,9 +23,6 @@ class CategoryWidget extends StatelessWidget {
               scrollDirection: Axis.horizontal,
               children: [
                 MovieCardWidget(),
-                MovieCardWidget(),
-                MovieCardWidget(),
-                MovieCardWidget(),
               ],
             ),
           )

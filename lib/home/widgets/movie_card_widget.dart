@@ -18,7 +18,7 @@ class MovieCardWidget extends StatelessWidget {
                 image: DecorationImage(
                   fit: BoxFit.cover,
                   image: NetworkImage(
-                    'https://img.elo7.com.br/product/original/23646C7/big-poster-filme-capita-marvel-tamanho-90x60-cm-presente-geek.jpg',
+                    'https://assets0.minhaserie.com.br/uploads/editor_pictures/000/050/824/content_pic.jpg',
                   ),
                 ),
               ),
