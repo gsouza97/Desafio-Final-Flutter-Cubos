@@ -38,11 +38,10 @@ class _HomePageState extends State<HomePage> {
               ),
             );
           } else if (snapshot.hasData) {
-            return CategoryWidget();
+            return CategoryWidget(movies: snapshot.data.movies);
           } else {
             return Container();
           }
-          
         }),
       ),
     );
