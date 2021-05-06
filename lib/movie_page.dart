@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:movies_app/movie/widgets/movie_widget.dart';
+import 'package:movies_app/widgets/movie_widget.dart';
 import 'package:movies_app/utils/app_text_styles.dart';
 
 class MoviePage extends StatelessWidget {
