@@ -29,7 +29,7 @@ class MovieWidget extends StatelessWidget {
               decoration: BoxDecoration(
                 image: DecorationImage(
                   image: NetworkImage(
-                    'https://image.tmdb.org/t/p/original$posterUrl',
+                    posterUrl,
                   ),
                 ),
               ),

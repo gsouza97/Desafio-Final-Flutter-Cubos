@@ -19,7 +19,7 @@ class Movie {
 
   Movie.fromJson(Map<String, dynamic> json) {
     title = json['title'];
-    posterUrl = json['poster_path'];
+    posterUrl = 'https://image.tmdb.org/t/p/original' + json['poster_path'];
     releaseDate = json['release_date'];
     description = json['overview'];
     voteAverage = json['vote_average'].toDouble();

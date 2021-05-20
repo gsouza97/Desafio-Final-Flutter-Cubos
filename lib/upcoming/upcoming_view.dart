@@ -1,20 +1,20 @@
 import 'package:flutter/material.dart';
-import 'package:movies_app/movie_controller.dart';
+import 'package:movies_app/upcoming/upcoming_controller.dart';
 import 'package:movies_app/widgets/category_widgets.dart';
-import 'package:movies_app/utils/app_text_styles.dart';
+import '../utils/app_text_styles.dart';
 
-class TopRatedPage extends StatefulWidget {
+class UpComingView extends StatefulWidget {
   @override
-  _TopRatedPageState createState() => _TopRatedPageState();
+  _UpComingViewState createState() => _UpComingViewState();
 }
 
-class _TopRatedPageState extends State<TopRatedPage> {
-  final controller = MovieController();
+class _UpComingViewState extends State<UpComingView> {
+  final controller = UpComingController();
 
   @override
   void initState() {
     super.initState();
-    controller.getTopRatedMovies();
+    controller.getUpComingMovies();
   }
 
   @override
@@ -34,7 +34,7 @@ class _TopRatedPageState extends State<TopRatedPage> {
             return Center(
               child: CategoryWidget(
                 movies: snapshot.data.movies,
-                category: 'Mais Votados',
+                category: 'Lançamentos',
               ),
             );
           } else if (snapshot.hasError) {
@@ -47,7 +47,7 @@ class _TopRatedPageState extends State<TopRatedPage> {
                 TextButton(
                   onPressed: () {
                     setState(() {
-                      controller.getTopRatedMovies();
+                      controller.getUpComingMovies();
                     });
                   },
                   child: Text('Tentar Novamente'),

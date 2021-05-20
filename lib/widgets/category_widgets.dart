@@ -30,12 +30,8 @@ class CategoryWidget extends StatelessWidget {
               scrollDirection: Axis.horizontal,
               children: movies
                   .map(
-                    (e) => MovieCardWidget(
-                      title: e.title,
-                      posterUrl: e.posterUrl,
-                      value: e.voteAverage,
-                      description: e.description,
-                      date: e.releaseDate,
+                    (movie) => MovieCardWidget(
+                      movie: movie,
                     ),
                   )
                   .toList(),

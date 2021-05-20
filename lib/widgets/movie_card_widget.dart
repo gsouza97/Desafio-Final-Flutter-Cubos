@@ -1,21 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:movies_app/classes/movie_class.dart';
 import 'package:movies_app/movie_page.dart';
 import 'package:movies_app/utils/app_text_styles.dart';
 
 class MovieCardWidget extends StatelessWidget {
-  final String title;
-  final String posterUrl;
-  final double value;
-  final String date;
-  final String description;
+  final Movie movie;
 
-  const MovieCardWidget({
-    @required this.title,
-    @required this.posterUrl,
-    @required this.value,
-    @required this.date,
-    @required this.description,
-  });
+  const MovieCardWidget({@required this.movie});
 
   @override
   Widget build(BuildContext context) {
@@ -26,21 +17,21 @@ class MovieCardWidget extends StatelessWidget {
           Navigator.of(context).push(
             MaterialPageRoute(
               builder: (context) => MoviePage(
-                title: title,
-                date: date,
-                description: description,
-                posterUrl: posterUrl,
+                title: movie.title,
+                date: movie.releaseDate,
+                description: movie.description,
+                posterUrl: movie.posterUrl,
               ),
             ),
           );
         },
-        child: Hero(
-          tag: posterUrl,
-          child: Container(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Expanded(
+        child: Container(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Expanded(
+                child: Hero(
+                  tag: movie.posterUrl,
                   child: Container(
                     width: 300,
                     decoration: BoxDecoration(
@@ -48,27 +39,37 @@ class MovieCardWidget extends StatelessWidget {
                       image: DecorationImage(
                         fit: BoxFit.cover,
                         image: NetworkImage(
-                          'https://image.tmdb.org/t/p/original$posterUrl',
+                          movie.posterUrl,
                         ),
                       ),
                     ),
                   ),
                 ),
-                SizedBox(height: 10),
-                Container(
-                  width: 300,
-                  child: Text(
-                    title,
-                    style: AppTextStyles.bodyWhite15,
-                  ),
+              ),
+              SizedBox(height: 10),
+              Container(
+                width: 300,
+                child: Text(
+                  movie.title,
+                  style: AppTextStyles.bodyWhite15,
                 ),
-                SizedBox(height: 3),
-                Text(
-                  'Avaliação: $value',
-                  style: AppTextStyles.body,
-                )
-              ],
-            ),
+              ),
+              SizedBox(height: 3),
+              Row(
+                children: [
+                  Text(
+                    'Avaliação: ${movie.voteAverage}',
+                    style: AppTextStyles.body,
+                  ),
+                  SizedBox(width: 3),
+                  Icon(
+                    Icons.star_rate_sharp,
+                    color: Colors.yellow[600],
+                    size: 14,
+                  )
+                ],
+              )
+            ],
           ),
         ),
       ),

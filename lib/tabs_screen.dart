@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:movies_app/upcoming_page.dart';
-import 'package:movies_app/popular_page.dart';
-import 'package:movies_app/top_rated_page.dart';
+import 'package:movies_app/upcoming/upcoming_view.dart';
+import 'package:movies_app/popular/popular_view.dart';
+import 'package:movies_app/top_rated/top_rated_view.dart';
 import 'package:movies_app/utils/app_text_styles.dart';
 
 class TabsScreen extends StatefulWidget {
@@ -13,9 +13,9 @@ class _TabsScreenState extends State<TabsScreen> {
   int _currentIndex = 0;
 
   final tabs = [
-    UpComingPage(),
-    TopRatedPage(),
-    PopularPage(),
+    UpComingView(),
+    PopularView(),
+    TopRatedView(),
   ];
 
   @override
@@ -46,12 +46,12 @@ class _TabsScreenState extends State<TabsScreen> {
             title: Text('Lançamentos'),
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.star_border),
-            title: Text('Mais Votados'),
+            icon: Icon(Icons.people_outline_sharp),
+            title: Text('Populares'),
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.people_outline_sharp),
-            title: Text('Popular'),
+            icon: Icon(Icons.star_border),
+            title: Text('Mais Votados'),
           ),
         ],
       ),
