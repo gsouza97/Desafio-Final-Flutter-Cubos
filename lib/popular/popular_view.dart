@@ -21,8 +21,8 @@ class _PopularViewState extends State<PopularView> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Theme.of(context).backgroundColor,
-      body: FutureBuilder(
-        future: controller.movies,
+      body: StreamBuilder(
+        stream: controller.movieStream.stream,
         builder: ((context, snapshot) {
           if (snapshot.connectionState == ConnectionState.waiting) {
             return Center(
