@@ -35,7 +35,7 @@ class MovieCardWidget extends StatelessWidget {
                   placeholder: AssetImage(
                     'assets/pngtree-new-film-premiere-theater-poster-image_195512.jpg',
                   ),
-                  fit: BoxFit.fitHeight,
+                  fit: BoxFit.cover,
                   image: NetworkImage(
                     movie.posterUrl == 'https://image.tmdb.org/t/p/w500/null'
                         ? 'https://www.2queue.com/2queue/wp-content/uploads/sites/6/tdomf/4299/movie-poster-coming-soon.png'
