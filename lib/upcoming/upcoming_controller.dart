@@ -24,4 +24,12 @@ class UpComingController {
     print(model.page);
     getUpComingMovies();
   }
+
+  saveFav(Movie movie) {
+    model.saveFav(movie);
+  }
+
+  deleteFav(Movie movie) {
+    model.deleteFav(movie);
+  }
 }

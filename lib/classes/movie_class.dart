@@ -11,13 +11,16 @@ class Movies {
 }
 
 class Movie {
+  int id;
   String title;
   String posterUrl;
   String releaseDate;
   String description;
   double voteAverage;
+  bool isFavorite = false;
 
   Movie.fromJson(Map<String, dynamic> json) {
+    id = json['id'];
     title = json['title'];
     posterUrl = 'https://image.tmdb.org/t/p/w500/${json['poster_path']}';
     releaseDate = json['release_date'];

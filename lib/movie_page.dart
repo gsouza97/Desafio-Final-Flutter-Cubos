@@ -7,9 +7,7 @@ import 'classes/movie_class.dart';
 class MoviePage extends StatelessWidget {
   final Movie movie;
 
-  const MoviePage({
-    @required this.movie
-  });
+  const MoviePage({@required this.movie});
 
   @override
   Widget build(BuildContext context) {
@@ -24,10 +22,7 @@ class MoviePage extends StatelessWidget {
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
         child: MovieWidget(
-          title: movie.title,
-          posterUrl: movie.posterUrl,
-          date: movie.releaseDate,
-          description: movie.description,
+          movie: movie,
         ),
       ),
     );
