@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:movies_app/classes/movie_class.dart';
-import 'package:movies_app/upcoming/upcoming_controller.dart';
+import 'package:movies_app/movies/upcoming/upcoming_controller.dart';
 import 'package:movies_app/utils/app_text_styles.dart';
 
 class MovieWidget extends StatefulWidget {
@@ -54,6 +54,21 @@ class _MovieWidgetState extends State<MovieWidget> {
                       'Data de Estreia: ${widget.movie.releaseDate}',
                       style: AppTextStyles.bodyBold,
                     ),
+                    SizedBox(height: 5),
+                    Row(
+                      children: [
+                        Text(
+                          'Avaliação: ${widget.movie.voteAverage}',
+                          style: AppTextStyles.body,
+                        ),
+                        SizedBox(width: 3),
+                        Icon(
+                          Icons.star_rate_sharp,
+                          color: Colors.yellow[600],
+                          size: 14,
+                        )
+                      ],
+                    )
                   ],
                 ),
               ),

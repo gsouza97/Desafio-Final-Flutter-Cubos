@@ -1,7 +1,7 @@
 import 'dart:async';
 
 import 'package:movies_app/classes/movie_class.dart';
-import 'package:movies_app/upcoming/upcoming_model.dart';
+import 'package:movies_app/movies/upcoming/upcoming_model.dart';
 
 class UpComingController {
   final model = UpComingModel();

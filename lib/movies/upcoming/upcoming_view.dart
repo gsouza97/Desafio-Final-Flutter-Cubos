@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:movies_app/classes/movie_class.dart';
-import 'package:movies_app/upcoming/upcoming_controller.dart';
-import 'package:movies_app/widgets/category_widgets.dart';
+import 'package:movies_app/movies/upcoming/upcoming_controller.dart';
+import 'package:movies_app/utils/app_text_styles.dart';
 import 'package:movies_app/widgets/movie_card_widget.dart';
-import '../utils/app_text_styles.dart';
 
 class UpComingView extends StatefulWidget {
   @override
@@ -34,35 +33,33 @@ class _UpComingViewState extends State<UpComingView> {
               ),
             );
           } else if (snapshot.hasData) {
-            return SingleChildScrollView(
-              child: Container(
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 15),
-                      child: Text(
-                        'Lançamentos',
-                        style: AppTextStyles.heading30,
-                      ),
+            return Container(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 8),
+                    child: Text(
+                      'Lançamentos',
+                      style: AppTextStyles.heading30,
                     ),
-                    SizedBox(height: 10),
-                    Container(
-                      height: size.height * 0.67,
-                      child: ListView.builder(
-                          scrollDirection: Axis.horizontal,
-                          itemCount: snapshot.data.length,
-                          itemBuilder: (_, index) {
-                            if (index == snapshot.data.length - 2) {
-                              controller.loadMore();
-                            }
-                            return MovieCardWidget(
-                              movie: snapshot.data[index],
-                            );
-                          }),
-                    ),
-                  ],
-                ),
+                  ),
+                  SizedBox(height: 4),
+                  Container(
+                    height: size.height * 0.25,
+                    child: ListView.builder(
+                        scrollDirection: Axis.horizontal,
+                        itemCount: snapshot.data.length,
+                        itemBuilder: (_, index) {
+                          if (index == snapshot.data.length - 2) {
+                            controller.loadMore();
+                          }
+                          return MovieCardWidget(
+                            movie: snapshot.data[index],
+                          );
+                        }),
+                  ),
+                ],
               ),
             );
           } else if (snapshot.hasError) {

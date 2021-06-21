@@ -22,7 +22,8 @@ class SQLAdapter extends InternalStorageAdapter {
     return await openDatabase(
       path,
       onCreate: (db, version) {
-        return db.execute('CREATE TABLE Favorites(id NUMERIC PRIMARY KEY, favorite NUMERIC)');
+        return db.execute(
+            'CREATE TABLE Favorites(id NUMERIC PRIMARY KEY, favorite NUMERIC)');
       },
       version: 1,
     );

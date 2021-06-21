@@ -1,60 +1,47 @@
 import 'package:flutter/material.dart';
-import 'package:movies_app/upcoming/upcoming_view.dart';
-import 'package:movies_app/popular/popular_view.dart';
-import 'package:movies_app/top_rated/top_rated_view.dart';
-import 'package:movies_app/utils/app_text_styles.dart';
+import 'package:movies_app/widgets/app_bar_widget.dart';
 
-class TabsScreen extends StatefulWidget {
+import 'movies/popular/popular_view.dart';
+import 'movies/theater/theater_view.dart';
+import 'movies/top_rated/top_rated_view.dart';
+import 'movies/upcoming/upcoming_view.dart';
+
+class HomeScreen extends StatefulWidget {
   @override
-  _TabsScreenState createState() => _TabsScreenState();
+  _HomeScreenState createState() => _HomeScreenState();
 }
 
-class _TabsScreenState extends State<TabsScreen> {
-  int _currentIndex = 0;
-
-  final tabs = [
-    UpComingView(),
-    PopularView(),
-    TopRatedView(),
-    
-  ];
-
+class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
+    final size = MediaQuery.of(context).size;
     return Scaffold(
       backgroundColor: Theme.of(context).backgroundColor,
-      appBar: AppBar(
-        elevation: 0,
-        backgroundColor: Theme.of(context).backgroundColor,
-        centerTitle: true,
-        title: Text('Movies', style: AppTextStyles.title),
-      ),
-      body: tabs[_currentIndex],
-      bottomNavigationBar: BottomNavigationBar(
-        currentIndex: _currentIndex,
-        type: BottomNavigationBarType.fixed,
-        onTap: (index) {
-          setState(() {
-            _currentIndex = index;
-          });
-        },
-        backgroundColor: Color(0xff111828),
-        selectedItemColor: Colors.blue,
-        unselectedItemColor: Colors.white,
-        items: [
-          BottomNavigationBarItem(
-            icon: Icon(Icons.update),
-            label: 'Lançamentos',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.people_outline_sharp),
-            label: 'Populares',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.star_border),
-            label: 'Mais Votados',
-          ),
-        ],
+      appBar: AppBarWidget(),
+      body: SingleChildScrollView(
+        child: Padding(
+          padding: const EdgeInsets.fromLTRB(8, 0, 8, 8),
+          child: Column(
+              children: [
+                Container(
+                  height: size.height * 0.29,
+                  child: TheaterView(),
+                ),
+                Container(
+                  height: size.height * 0.29,
+                  child: UpComingView(),
+                ),
+                Container(
+                  height: size.height * 0.29,
+                  child: TopRatedView(),
+                ),
+                Container(
+                  height: size.height * 0.29,
+                  child: PopularView(),
+                ),
+              ],
+            ),
+        ),
       ),
     );
   }

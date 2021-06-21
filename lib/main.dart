@@ -15,7 +15,7 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
         backgroundColor: Color(0xff111820),
       ),
-      home: TabsScreen(),
+      home: HomeScreen(),
     );
   }
 }

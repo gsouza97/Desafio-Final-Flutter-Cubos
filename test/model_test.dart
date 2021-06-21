@@ -1,7 +1,7 @@
 import 'package:flutter_test/flutter_test.dart';
-import 'package:movies_app/popular/popular_model.dart';
-import 'package:movies_app/top_rated/top_rated_model.dart';
-import 'package:movies_app/upcoming/upcoming_model.dart';
+import 'package:movies_app/movies/popular/popular_model.dart';
+import 'package:movies_app/movies/top_rated/top_rated_model.dart';
+import 'package:movies_app/movies/upcoming/upcoming_model.dart';
 
 void main() {
   group('Movies', () {
