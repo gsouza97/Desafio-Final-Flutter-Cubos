@@ -1,12 +1,12 @@
 class Movies {
   List<Movie> movies;
 
+  Movies({this.movies});
+
   Movies.fromJson(Map<String, dynamic> json) {
     var movieList = json['results'] as List;
 
     movies = movieList.map((e) => Movie.fromJson(e)).toList();
-
-    print(movieList);
   }
 }
 
@@ -19,7 +19,7 @@ class Movie {
 
   Movie.fromJson(Map<String, dynamic> json) {
     title = json['title'];
-    posterUrl = 'https://image.tmdb.org/t/p/original' + json['poster_path'];
+    posterUrl = 'https://image.tmdb.org/t/p/w500/${json['poster_path']}';
     releaseDate = json['release_date'];
     description = json['overview'];
     voteAverage = json['vote_average'].toDouble();

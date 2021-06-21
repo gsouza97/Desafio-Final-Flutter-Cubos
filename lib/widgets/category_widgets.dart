@@ -7,7 +7,9 @@ class CategoryWidget extends StatelessWidget {
   final List<Movie> movies;
   final String category;
 
-  const CategoryWidget({@required this.movies, @required this.category});
+  CategoryWidget({@required this.movies, @required this.category});
+
+  
 
   @override
   Widget build(BuildContext context) {

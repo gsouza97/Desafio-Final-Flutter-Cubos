@@ -29,7 +29,9 @@ class MovieWidget extends StatelessWidget {
               decoration: BoxDecoration(
                 image: DecorationImage(
                   image: NetworkImage(
-                    posterUrl,
+                    posterUrl == 'https://image.tmdb.org/t/p/w500/null'
+                        ? 'https://www.2queue.com/2queue/wp-content/uploads/sites/6/tdomf/4299/movie-poster-coming-soon.png'
+                        : posterUrl,
                   ),
                 ),
               ),

@@ -43,15 +43,15 @@ class _TabsScreenState extends State<TabsScreen> {
         items: [
           BottomNavigationBarItem(
             icon: Icon(Icons.update),
-            title: Text('Lançamentos'),
+            label: 'Lançamentos',
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.people_outline_sharp),
-            title: Text('Populares'),
+            label: 'Populares',
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.star_border),
-            title: Text('Mais Votados'),
+            label: 'Mais Votados',
           ),
         ],
       ),
