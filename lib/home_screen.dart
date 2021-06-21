@@ -24,19 +24,19 @@ class _HomeScreenState extends State<HomeScreen> {
           child: Column(
               children: [
                 Container(
-                  height: size.height * 0.29,
+                  height: size.height * 0.31,
                   child: TheaterView(),
                 ),
                 Container(
-                  height: size.height * 0.29,
+                  height: size.height * 0.31,
                   child: UpComingView(),
                 ),
                 Container(
-                  height: size.height * 0.29,
+                  height: size.height * 0.31,
                   child: TopRatedView(),
                 ),
                 Container(
-                  height: size.height * 0.29,
+                  height: size.height * 0.31,
                   child: PopularView(),
                 ),
               ],
