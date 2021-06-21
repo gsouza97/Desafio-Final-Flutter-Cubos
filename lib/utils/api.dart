@@ -6,10 +6,9 @@ import 'package:movies_app/classes/movie_class.dart';
 class API {
   final _authority = 'api.themoviedb.org';
   final _API_KEY = 'a5bc05fb630c9b7fdc560033345fa13e';
-  int page = 1;
   Map<String, String> queryParameters;
 
-  Future<Movies> getMovies(String path) async {
+  Future<Movies> getMovies(String path, int page) async {
     final response = await http.get(Uri.https(
         _authority,
         "/3/movie/$path",
