@@ -6,16 +6,16 @@ import 'package:movies_app/upcoming/upcoming_model.dart';
 class UpComingController {
   final model = UpComingModel();
 
-  List<Movie> finalList = [];
+  List<Movie> upComingList = [];
 
-  StreamController<List<Movie>> movieStream = StreamController();
+  StreamController<List<Movie>> upComingStream = StreamController();
 
   getUpComingMovies() {
     model.getUpComingMovies();
     model.movies.then((value) {
-      finalList.addAll(value.movies);
-      movieStream.add(finalList);
-      print(finalList.length);
+      upComingList.addAll(value.movies);
+      upComingStream.add(upComingList);
+      print(upComingList.length);
     });
   }
 

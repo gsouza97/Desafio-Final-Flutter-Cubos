@@ -6,10 +6,30 @@ import 'package:movies_app/popular/popular_model.dart';
 class PopularController {
   final model = PopularModel();
 
-  StreamController movieStream = StreamController();
+  List<Movie> popularList = [];
+
+  StreamController<List<Movie>> popularStream = StreamController();
 
   getPopularMovies() {
     model.getPopularMovies();
-    model.movies.then((value) => movieStream.add(value));
+    model.movies.then((value) {
+      popularList.addAll(value.movies);
+      popularStream.add(popularList);
+      print(popularList.length);
+    });
+  }
+
+  loadMore() {
+    model.page++;
+    print(model.page);
+    getPopularMovies();
+  }
+
+  saveFav(Movie movie) {
+    model.saveFav(movie);
+  }
+
+  deleteFav(Movie movie) {
+    model.deleteFav(movie);
   }
 }

@@ -16,6 +16,7 @@ class _TabsScreenState extends State<TabsScreen> {
     UpComingView(),
     PopularView(),
     TopRatedView(),
+    
   ];
 
   @override
