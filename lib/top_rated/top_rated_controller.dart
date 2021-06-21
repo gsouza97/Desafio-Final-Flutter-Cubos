@@ -6,10 +6,30 @@ import 'package:movies_app/top_rated/top_rated_model.dart';
 class TopRatedController {
   final model = TopRatedModel();
 
-  StreamController movieStream = StreamController();
+  List<Movie> topRatedList = [];
+
+  StreamController<List<Movie>> topRatedStream = StreamController();
 
   getTopRatedMovies() {
     model.getTopRatedMovies();
-    model.movies.then((value) => movieStream.add(value));
+    model.movies.then((value) {
+      topRatedList.addAll(value.movies);
+      topRatedStream.add(topRatedList);
+      print(topRatedList.length);
+    });
+  }
+
+  loadMore() {
+    model.page++;
+    print(model.page);
+    getTopRatedMovies();
+  }
+
+  saveFav(Movie movie) {
+    model.saveFav(movie);
+  }
+
+  deleteFav(Movie movie) {
+    model.deleteFav(movie);
   }
 }

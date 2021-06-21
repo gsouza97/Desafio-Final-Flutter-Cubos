@@ -25,7 +25,7 @@ class _UpComingViewState extends State<UpComingView> {
     return Scaffold(
       backgroundColor: Theme.of(context).backgroundColor,
       body: StreamBuilder<List<Movie>>(
-        stream: controller.movieStream.stream,
+        stream: controller.upComingStream.stream,
         builder: ((context, snapshot) {
           if (snapshot.connectionState == ConnectionState.waiting) {
             return Center(
@@ -53,7 +53,7 @@ class _UpComingViewState extends State<UpComingView> {
                           scrollDirection: Axis.horizontal,
                           itemCount: snapshot.data.length,
                           itemBuilder: (_, index) {
-                            if (index == snapshot.data.length - 1) {
+                            if (index == snapshot.data.length - 2) {
                               controller.loadMore();
                             }
                             return MovieCardWidget(

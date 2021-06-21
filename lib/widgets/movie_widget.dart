@@ -24,19 +24,16 @@ class _MovieWidgetState extends State<MovieWidget> {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Hero(
-            tag: widget.movie.posterUrl,
-            child: Container(
-              height: size.height * 0.43,
-              width: double.infinity,
-              decoration: BoxDecoration(
-                image: DecorationImage(
-                  image: NetworkImage(
-                    widget.movie.posterUrl ==
-                            'https://image.tmdb.org/t/p/w500/null'
-                        ? 'https://www.2queue.com/2queue/wp-content/uploads/sites/6/tdomf/4299/movie-poster-coming-soon.png'
-                        : widget.movie.posterUrl,
-                  ),
+          Container(
+            height: size.height * 0.55,
+            width: double.infinity,
+            decoration: BoxDecoration(
+              image: DecorationImage(
+                image: NetworkImage(
+                  widget.movie.posterUrl ==
+                          'https://image.tmdb.org/t/p/w500/null'
+                      ? 'https://www.2queue.com/2queue/wp-content/uploads/sites/6/tdomf/4299/movie-poster-coming-soon.png'
+                      : widget.movie.posterUrl,
                 ),
               ),
             ),
